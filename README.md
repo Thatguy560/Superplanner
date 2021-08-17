@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# Super Planner
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- GIF of project goes here -->
 
-## Available Scripts
+<!-- <p align="center">
+  <img src="./src/assets/DemoOfApp.gif" alt="animated" />
+</p> -->
 
-In the project directory, you can run:
+# Requirements
 
-### `yarn start`
+Taken from https://gist.github.com/ryanpierre/971c0fc456acf38ae012bc0c7d54bc9b#file-superplanner-md
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Your job is to make a todo list application. This is no ordinairy to do list though. It's a super planner ! Here is a quick feature list we are hoping to implement:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Add, Edit, and Delete Todos
+- Mark Todos as complete
+- See a list of completed todos and uncomplete a todo
+- See the current weather and date
+  
+Implement all of the following user stories to bring the SuperTodoList to life ! I'd recommend that you use the following stack to create this project:
 
-### `yarn test`
+- Ruby on Rails backend with a React frontend (created using create-react-app)
+- Express Backend with React frontned (created using create-react-app)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Make sure your app is fully tested. This includes testing your frontend components in addition to unit tests and feature tests in the backend !
 
-### `yarn build`
+You might find the following page useful in getting started if you've chosen Rails:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Using Rails for API only application](https://guides.rubyonrails.org/api_app.html)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+For the purpose of this excercise, we don't want to render views in Rails. Instead, we should return JSON data from each request, and consume that JSON data in our React frontend.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When you're running your app, you should have two terminals open: One, running rails, and the other, running your react app. Don't worry about running them on the same port and ignore tutorials which might tell you to do this.
 
-### `yarn eject`
+You might find this helpful as well if you've chosen to use Express or Rails:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[Proxying requests from React to your backend](https://create-react-app.dev/docs/proxying-api-requests-in-development)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+For implementing the weather, try using [Open Weather API](https://openweathermap.org/api). You'll need to sign up but you only need the free tier.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Stories to implement
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+As a user
+So that I can manage my life
+I can save a task I want to do later
+```
 
-## Learn More
+```
+As a user
+So that I can remove an unnecessary task
+I can delete a task
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+As a user
+So that I can fix a mistake
+I can edit a task
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+As a user
+So that I can know what I've completed
+I can mark a task as completed 
+```
 
-### Code Splitting
+```
+As a user
+So that I can see which tasks I've completed and which I haven't
+I can toggle between seeing completed and incompleted todos
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+As a user
+So that I know what day it currently is
+I can see the current date and time displayed
+```
 
-### Analyzing the Bundle Size
+```
+As a user
+So that I can plan my day better
+I can see the current temperature and weather conditions displayed
+```
+ 
+<!-- # Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Clone this repository
 
-### Making a Progressive Web App
+2. type git clone "https://github.com/Thatguy560/Timer-React" in the terminal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. cd into 'Timer-React' (Change directory's)
 
-### Advanced Configuration
+4. Install [node.js](https://nodejs.org/en/download/) and run npm install in command line to install dependencies -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<!-- 
+# How To Run (Locally)
 
-### Deployment
+1. Open up a terminal in your text editor and type 'npm start'
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. This should then automatically open the app on your browser, however if it doesn't just open up any browser of your choosing and type in the url "http://localhost:3000/".
 
-### `yarn build` fails to minify
+3. Once the page is loaded, type in how long you want to set a timer for (In minutes) and click "Set Timer". Once you're ready click "Start Timer". You also have the option to Pause or Resume the timer or Reset it.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Alternatively Visit the deployed app
+
+Click [here](https://my-timer-application.herokuapp.com/) for the deployed app on Heroku.  -->
+
+# Technologies Used
+
+#### React, Javascript, HTML/CSS
+
