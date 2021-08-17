@@ -12,10 +12,10 @@ Taken from https://gist.github.com/ryanpierre/971c0fc456acf38ae012bc0c7d54bc9b#f
 
 Your job is to make a todo list application. This is no ordinairy to do list though. It's a super planner ! Here is a quick feature list we are hoping to implement:
 
-- Add, Edit, and Delete Todos
-- Mark Todos as complete
-- See a list of completed todos and uncomplete a todo
-- See the current weather and date
+- [ ] Add, Edit, and Delete Todos 
+- [ ] Mark Todos as complete
+- [ ] See a list of completed todos and uncomplete a todo
+- [ ] See the current weather and date
   
 Implement all of the following user stories to bring the SuperTodoList to life ! I'd recommend that you use the following stack to create this project:
 
@@ -38,13 +38,15 @@ You might find this helpful as well if you've chosen to use Express or Rails:
 
 For implementing the weather, try using [Open Weather API](https://openweathermap.org/api). You'll need to sign up but you only need the free tier.
 
+- Mercury
 # Stories to implement
 
 ```
 As a user
 So that I can manage my life
-I can save a task I want to do later
-```
+I can save a task I want to do later 
+``` 
+
 
 ```
 As a user
