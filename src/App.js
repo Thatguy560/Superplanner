@@ -6,7 +6,7 @@ function App() {
   const [list, updateList] = React.useState([]);
 
   const toDoItem = (item) => {
-    let newItem = item.target.value;
+    let newItem = { text: item.target.value, key: Date.now() };
     setItem(newItem);
   };
 
@@ -15,8 +15,12 @@ function App() {
     document.getElementById("Input").value = "";
   };
 
-  const deleteItem = () => {
-    console.log("this will delete particular item");
+  const deleteItem = (index) => {
+    updateList((prevState) => {
+      let items = [...prevState];
+      items.splice(index, 1);
+      return items;
+    });
   };
 
   return (
@@ -24,7 +28,7 @@ function App() {
       <h2>Type a todo item you want to complete</h2>
       <input
         type="text"
-        placeholder="Add a todo"
+        placeholder="Enter Task..."
         id="Input"
         onChange={toDoItem}
       />
@@ -33,13 +37,17 @@ function App() {
       </button>
       {list.map((item, index) => {
         return (
-          <ol key={index}>
-            {item[0].toUpperCase() + item.slice(1).toLowerCase()}
-            <button>Edit</button>
-            <button id="Delete" onClick={deleteItem}>
-              X
-            </button>
-          </ol>
+          <p id="list">
+            <ol key={index}>
+              {`${index + 1}. ${item.text[0].toUpperCase()}${item.text
+                .slice(1)
+                .toLowerCase()}`}
+              <button>Edit</button>
+              <button id="Delete" onClick={() => deleteItem(index)}>
+                ✗
+              </button>
+            </ol>
+          </p>
         );
       })}
     </div>
