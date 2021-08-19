@@ -1,23 +1,27 @@
 import "./css/App.css";
-import React, { useRef } from "react";
+import React, { useEffect } from "react";
+// import React, { useRef } from "react";
 
-function App() {
-  const [item, setItem] = React.useState("");
+export function App() {
+  const [todo, setItem] = React.useState("");
   const [list, updateList] = React.useState([]);
 
-  const toDoItem = (item) => {
-    let newItem = { text: item.target.value, key: Date.now() };
-    setItem(newItem);
+  const createToDoItem = (newItem) => {
+    if (newItem.target.value !== "") {
+      setItem({ text: newItem.target.value, key: Date.now() });
+    }
   };
 
   const addItem = () => {
-    updateList((prevState) => [...list, item]);
-    document.getElementById("Input").value = "";
+    if (todo !== "" && todo.text !== undefined) {
+      updateList([...new Set([...list, todo])]);
+      document.getElementById("Input").value = "";
+    }
   };
 
   const deleteItem = (index) => {
-    updateList((prevState) => {
-      let items = [...prevState];
+    updateList((list) => {
+      let items = [...list];
       items.splice(index, 1);
       return items;
     });
@@ -25,29 +29,29 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Type a todo item you want to complete</h2>
+      {console.log(list)}
       <input
-        type="text"
-        placeholder="Enter Task..."
         id="Input"
-        onChange={toDoItem}
+        type="text"
+        placeholder="Enter Todo..."
+        onChange={createToDoItem}
       />
       <button id="Add" onClick={addItem}>
         Add
       </button>
       {list.map((item, index) => {
         return (
-          <p id="list">
-            <ol key={index}>
+          <ol key={index}>
+            <p id="list">
               {`${index + 1}. ${item.text[0].toUpperCase()}${item.text
                 .slice(1)
                 .toLowerCase()}`}
-              <button>Edit</button>
+              <button id="Edit">Edit</button>
               <button id="Delete" onClick={() => deleteItem(index)}>
                 ✗
               </button>
-            </ol>
-          </p>
+            </p>
+          </ol>
         );
       })}
     </div>

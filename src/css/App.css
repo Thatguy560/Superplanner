@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #FF0000;
   height: 100%;
   width: 100%;
   min-height: 100vh;
@@ -8,26 +8,46 @@
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #282828;
 }
 
 .App input#Input {
   display: inline;
+  margin-left: auto;
+  margin: 10px;
+  padding: 7.5px;
+  margin-top: 25px;
+  /* border-radius: 5px; */
 }
 
 .App button#Add {
   cursor: pointer;
   display: inline;
-  bottom: 0;
+  padding: 7.5px;
+  margin-top: 25px;
+  /* border-radius: 5px; */
+}
+
+.App button#Edit {
+  cursor: pointer;
+  display: inline;
+  margin: 10px;
+}
+
+.App button#Delete {
+  cursor: pointer;
+  display: inline;
 }
 
 .App p#list {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.9);
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
   text-align: left;
   border-radius: 5px;
+  padding: 7.5px;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* margin-bottom: 15px; */
 } 
 
 .App ol {
