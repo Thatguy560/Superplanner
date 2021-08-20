@@ -31,6 +31,20 @@ export function App() {
       return items;
     });
   };
+  // Then filter by checking if true or false to check if completed or not.
+  const itemCompleted = (index) => {
+    let allItems = [...list];
+
+    if (allItems[index].completed === false) {
+      console.log("now complete");
+    } else {
+      console.log("now finished");
+      allItems[index].completed = true;
+    }
+
+    allItems[index].completed = true;
+    updateList(allItems);
+  };
 
   return (
     <div className="App">
@@ -48,6 +62,7 @@ export function App() {
           return (
             <ol key={index}>
               <p id="list">
+                {console.log(list)}
                 {`${index + 1}. ${item.text[0].toUpperCase()}${item.text
                   .slice(1)
                   .toLowerCase()}`}
@@ -58,7 +73,6 @@ export function App() {
                 <button id="Delete" onClick={() => deleteItem(index)}>
                   X
                 </button>
-                {console.log(list)}
               </p>
             </ol>
           );
