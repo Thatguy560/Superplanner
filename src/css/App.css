@@ -35,6 +35,7 @@
   cursor: pointer;
   display: inline;
   margin: 10px;
+  border-radius: 5px;
 }
 
 .App button#Delete {
@@ -44,6 +45,7 @@
   color: #FFFFFF;
   border: 2px solid #FF0000;
   font-weight: bold;
+  border-radius: 5px;
 }
 
 .App p#list {
@@ -53,45 +55,49 @@
   border-radius: 5px;
   padding: 7.5px;
   color: black;
-  /* margin-left: auto; */
-  /* margin-right: auto; */
-  /* margin-bottom: 15px; */
+  margin: -10px;
 }
 
 .App div#dateInfo {
-  background-color: white;
-  width: fit-content;
+  background-image: -webkit-linear-gradient(bottom, white 55%, #FF0000 45%);
+  border: 2px solid black;
+  box-shadow: 3px 3px 3px 3px black;
+  width: fit-content; 
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
-  border: 2px solid black;
   margin-top: 25px;
-  box-shadow: 3px 3px 3px 3px black;
+  cursor: default;
 }
 
 .App p#monthYear {
-  padding: 5px;
-  border-radius: 5px;
   background-color: #FF0000;
   color: white;
+  padding: 5px;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto; 
   font-weight: bold;
   font-size: 35px;
-  /* width: 100%; */
+  margin: 10px;
+  /* border-radius: 5px; */
 }
 
 .App p#todaysDate {
   color: #003366;
   font-weight: bold;
+  margin: 10px;
 }
 
 .App p#currentTime {
   color: #003366;
   font-weight: bold;
   animation: blink 1s step-start 0s infinite;
+  margin: 10px;
 }
 
 .App p {
-  margin: 10px;
+  
 }
 
 .App input {

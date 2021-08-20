@@ -10,7 +10,7 @@
 
 Taken from https://gist.github.com/ryanpierre/971c0fc456acf38ae012bc0c7d54bc9b#file-superplanner-md
 
-Your job is to make a todo list application. This is no ordinairy to do list though. It's a super planner ! Here is a quick feature list we are hoping to implement:
+Your job is to make a todo list application. This is no ordinary to do list though. It's a super planner! Here is a quick feature list we are hoping to implement:
 
 - [ ] Add, Edit, and Delete Todos 
 - [ ] Mark Todos as complete
@@ -38,7 +38,6 @@ You might find this helpful as well if you've chosen to use Express or Rails:
 
 For implementing the weather, try using [Open Weather API](https://openweathermap.org/api). You'll need to sign up but you only need the free tier.
 
-- Mercury
 # Stories to implement
 
 ```
