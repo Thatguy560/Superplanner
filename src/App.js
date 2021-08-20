@@ -1,10 +1,19 @@
 import "./css/App.css";
+import { dayNames, getOrdinal, monthNames, formatAMPM } from "./formatDateTime";
 import React, { useEffect } from "react";
-// import React, { useRef } from "react";
 
 export function App() {
   const [todo, setItem] = React.useState("");
   const [list, updateList] = React.useState([]);
+  const [date, updateDate] = React.useState(new Date());
+
+  useEffect(() => {
+    let interval;
+    interval = setInterval(() => {
+      updateDate(new Date());
+    }, 1000);
+    return () => clearInterval(interval);
+  });
 
   const createToDoItem = (newItem) => {
     if (newItem.target.value !== "") {
@@ -29,13 +38,16 @@ export function App() {
 
   return (
     <div className="App">
-      {console.log(list)}
-      <input
-        id="Input"
-        type="text"
-        placeholder="Enter Todo..."
-        onChange={createToDoItem}
-      />
+      <div id="dateInfo">
+        <p id="monthYear">{`${
+          monthNames[date.getMonth()]
+        } ${date.getFullYear()}`}</p>
+        <p id="todaysDate">{`${dayNames[date.getDay() - 1]}, ${getOrdinal(
+          date.getDate()
+        )}`}</p>
+        <p id="currentTime">{formatAMPM(date)}</p>
+      </div>
+      <input id="Input" placeholder="Enter Todo..." onChange={createToDoItem} />
       <button id="Add" onClick={addItem}>
         Add
       </button>

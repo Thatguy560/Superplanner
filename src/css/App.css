@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #FF0000;
+  background-color: #6495ED;
   height: 100%;
   width: 100%;
   min-height: 100vh;
@@ -17,13 +17,16 @@
   margin: 10px;
   padding: 7.5px;
   margin-top: 25px;
-  /* border-radius: 5px; */
+  font-size: 15px;
+  background-color: white;
+  border: 2px solid white
 }
 
 .App button#Add {
   cursor: pointer;
   display: inline;
   padding: 7.5px;
+  font-size: 15px;
   margin-top: 25px;
   /* border-radius: 5px; */
 }
@@ -37,6 +40,10 @@
 .App button#Delete {
   cursor: pointer;
   display: inline;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  border: 2px solid #FF0000;
+  font-weight: bold;
 }
 
 .App p#list {
@@ -45,16 +52,54 @@
   text-align: left;
   border-radius: 5px;
   padding: 7.5px;
+  color: black;
   /* margin-left: auto; */
   /* margin-right: auto; */
   /* margin-bottom: 15px; */
-} 
+}
+
+.App div#dateInfo {
+  background-color: white;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  border: 2px solid black;
+  margin-top: 25px;
+  box-shadow: 3px 3px 3px 3px black;
+}
+
+.App p#monthYear {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #FF0000;
+  color: white;
+  font-weight: bold;
+  font-size: 35px;
+  /* width: 100%; */
+}
+
+.App p#todaysDate {
+  color: #003366;
+  font-weight: bold;
+}
+
+.App p#currentTime {
+  color: #003366;
+  font-weight: bold;
+  animation: blink 1s step-start 0s infinite;
+}
+
+.App p {
+  margin: 10px;
+}
+
+.App input {
+
+}
 
 .App ol {
   /* text-decoration: line-through; */
 } 
 
-.App input {
-
-}
 
