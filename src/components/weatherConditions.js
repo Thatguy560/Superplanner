@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-// import ".././css/App.css";
+import { REACT_APP_API_KEY } from "./API_KEY.js";
 
 const API = {
-  KEY: "5f69e3c197e9a0d92d427ee6107b7ad8",
+  KEY: REACT_APP_API_KEY,
   URL: "https://api.openweathermap.org/data/2.5/",
 };
 
@@ -30,12 +30,14 @@ export function Weather() {
   }, [lat, long]);
 
   return (
-    <div className="weather-box">
+    <div>
       {typeof weatherData.main != "undefined" ? (
-        <div id="location">
-          {weatherData.name}, {weatherData.sys.country}
-          <div id="temp">{Math.round(weatherData.main.temp)}°c</div>
-          <div id="weather">{weatherData.weather[0].main}</div>
+        <div className="weather-box">
+          <div id="location">
+            {weatherData.name}, {weatherData.sys.country}
+            <div id="temp">{Math.round(weatherData.main.temp)}°c</div>
+            <div id="weather">{weatherData.weather[0].main}</div>
+          </div>
         </div>
       ) : (
         <div></div>
