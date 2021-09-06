@@ -14,7 +14,7 @@ export function App() {
     if (newItem.target.value !== "") {
       setItem({
         text: newItem.target.value,
-        key: Date.now(),
+        key: new Date().getTime(),
         completed: false, // Set to true when completed
       });
     }
@@ -50,6 +50,7 @@ export function App() {
       <div className="box">
         <TimeDate />
         <Weather />
+        {console.log(list)}
       </div>
       <input id="Input" placeholder="Enter Todo..." onChange={createToDoItem} />
       <button id="Add" onClick={addItem}>

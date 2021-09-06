@@ -9,7 +9,7 @@ const API = {
 export function Weather() {
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
-  const [data, setData] = useState([]);
+  const [weatherData, setWeatherData] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,63 +23,23 @@ export function Weather() {
       )
         .then((res) => res.json())
         .then((result) => {
-          setData(result);
-          console.log(result);
+          setWeatherData(result);
         });
     };
     fetchData();
   }, [lat, long]);
 
   return (
-    <div>
-      <div className="weather-box">
-        <div id="location"></div>
-        <div id="temp">°c</div>
-        <div id="weather"></div>
-      </div>
+    <div className="weather-box">
+      {typeof weatherData.main != "undefined" ? (
+        <div id="location">
+          {weatherData.name}, {weatherData.sys.country}
+          <div id="temp">{Math.round(weatherData.main.temp)}°c</div>
+          <div id="weather">{weatherData.weather[0].main}</div>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }
-
-// const API = {
-//   key: "158513168c9a5d22a8f2f4ecfb1a3730",
-//   base: "https://api.openweathermap.org/data/2.5/",
-// };
-
-// export function Weather() {
-//   const [location, setLocation] = useState("");
-//   const [weather, setWeather] = useState({});
-
-// useEffect(() => {
-//   const success = (position) => {
-//     const latitude = position.coords.latitude;
-//     const longitude = position.coords.longitude;
-//     const geoAPIUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
-//     fetch(geoAPIUrl)
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setLocation(data);
-//       });
-//   };
-//   navigator.geolocation.getCurrentPosition(success);
-// });
-
-// useEffect(() => {
-//   if (location !== "") {
-//     fetch(
-//       `${API.base}weather?q=${location.city}&units=metric&APPID=${API.key}`
-//     )
-//       .then((res) => res.json())
-//       .then((result) => setWeather(result));
-//   }
-// });
-
-// const displayWeather = () => {
-//   if (location !== "") {
-//     fetch(
-//       `${API.base}weather?q=${location.city}&units=metric&APPID=${API.key}`
-//     )
-//       .then((res) => res.json())
-//       .then((result) => setWeather(result));
-//   }
-// };

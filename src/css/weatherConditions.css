@@ -3,8 +3,11 @@
 }
 
 .weather-box {
-    margin: 10px;
     color: black;
+    background-image: url("https://cdn.wallpaperhub.app/cloudcache/f/b/b/d/a/d/fbbdada7ce61a2181a4de8da8b40f2f106ffbf6b.jpg");
+    background-size: cover;                      
+    background-position: center center;
+    margin: 10px;
     border-radius: 5px;
     width: 20%;
     padding: 10px;
