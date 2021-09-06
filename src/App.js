@@ -1,11 +1,14 @@
 import "./css/App.css";
-import React from "react";
+import "./css/dateTime.css";
+import "./css/weatherConditions.css";
+import React, { useState } from "react";
 import FlipMove from "react-flip-move";
-import { TimeDate } from "./DateTime";
+import { TimeDate } from "./components/dateTime";
+import { Weather } from "./components/weatherConditions";
 
 export function App() {
-  const [todo, setItem] = React.useState("");
-  const [list, updateList] = React.useState([]);
+  const [todo, setItem] = useState("");
+  const [list, updateList] = useState([]);
 
   const createToDoItem = (newItem) => {
     if (newItem.target.value !== "") {
@@ -34,45 +37,45 @@ export function App() {
   // Then filter by checking if true or false to check if completed or not.
   const itemCompleted = (index) => {
     let allItems = [...list];
-
-    if (allItems[index].completed === false) {
-      console.log("now complete");
-    } else {
-      console.log("now finished");
-      allItems[index].completed = true;
-    }
-
     allItems[index].completed = true;
     updateList(allItems);
   };
 
+  const sortCompletedItems = () => {
+    updateList([...list].filter((item) => item.completed !== true));
+  };
+
   return (
     <div className="App">
-      <TimeDate />
-      {console.log(list)}
+      <div className="box">
+        <TimeDate />
+        <Weather />
+      </div>
       <input id="Input" placeholder="Enter Todo..." onChange={createToDoItem} />
       <button id="Add" onClick={addItem}>
-        Add +
+        Add
       </button>
       <FlipMove
         enterAnimation="accordionVertical"
         leaveAnimation="accordionVertical"
       >
+        <button id="sortCompleted" onClick={sortCompletedItems}>
+          Sort Completed Todos
+        </button>
         {list.map((item, index) => {
           return (
             <ol key={index}>
               <p id="list">
-                {console.log(list)}
                 {`${index + 1}. ${item.text[0].toUpperCase()}${item.text
                   .slice(1)
                   .toLowerCase()}`}
                 <button id="Completed" onClick={() => itemCompleted(index)}>
-                  Done
+                  ✓
+                </button>
+                <button id="Delete" onClick={() => deleteItem(index)}>
+                  ✕
                 </button>
                 <button id="Edit">Edit</button>
-                <button id="Delete" onClick={() => deleteItem(index)}>
-                  X
-                </button>
               </p>
             </ol>
           );

@@ -56,9 +56,9 @@ export function TimeDate() {
       <p id="monthYear">{`${
         monthNames[date.getMonth()]
       } ${date.getFullYear()}`}</p>
-      <p id="todaysDate">{`${dayNames[date.getDay() - 1]}, ${getOrdinal(
-        date.getDate()
-      )}`}</p>
+      <p id="todaysDate">{`${
+        dayNames.slice(date.getDay() - 1)[0]
+      }, ${getOrdinal(date.getDate())}`}</p>
       <p id="currentTime">{formatAMPM(date)}</p>
     </div>
   );

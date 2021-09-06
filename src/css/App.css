@@ -1,14 +1,17 @@
 .App {
-  text-align: center;
   background-color: #6495ED;
-  height: 100%;
   width: 100%;
   min-height: 100vh;
   display: table;
-  flex-direction: column;
-  align-items: center;
   font-size: calc(10px + 2vmin);
   color: #282828;
+  /* text-align: center; */
+  /* align-items: center; */
+  /* flex-direction: column; */
+}
+
+.App div#box {
+  display: relative;
 }
 
 .App input#Input {
@@ -19,7 +22,8 @@
   margin-top: 25px;
   font-size: 15px;
   background-color: white;
-  border: 2px solid white
+  border: 2px solid white;
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
 }
 
 .App button#Add {
@@ -28,72 +32,95 @@
   padding: 7.5px;
   font-size: 15px;
   margin-top: 25px;
-  /* border-radius: 5px; */
+  background-color: white;
+  border: 2px solid white;
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.2)
 }
+
+.App button#Add:hover {
+  background-color: rgb(245, 235, 235);
+  border: 2px solid  rgb(245, 235, 235);
+}
+
+.App button#Add:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 
 .App button#Edit {
   cursor: pointer;
   display: inline;
-  margin: 10px;
   border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
 }
 
 .App button#Delete {
   cursor: pointer;
   display: inline;
   background-color: #FF0000;
-  color: #FFFFFF;
   border: 2px solid #FF0000;
+  color: #FFFFFF;
   font-weight: bold;
   border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.App button#Delete:hover {
+  background-color: #e21111;
+  border: 2px solid #e21111;
+}
+
+.App button#Delete:active {
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+
+.App button#Completed {
+  cursor: pointer;
+  display: inline;
+  background-color: #32CD32;
+  border: 2px solid #32CD32;
+  color: #FFFFFF;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.App button#Completed:hover {
+  background-color: #3ab63a;
+  border: 2px solid #3ab63a;
+}
+
+.App button#Completed:active {
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+
+.App button#sortCompleted {
+  cursor: pointer;
+  display: inline;
+  background-color: #32CD32;
+  border: 2px solid #32CD32;
+  color: #FFFFFF;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
 }
 
 .App p#list {
+  color: black;
   background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
   width: fit-content;
-  text-align: left;
   border-radius: 5px;
   padding: 7.5px;
-  color: black;
   margin: -10px;
-}
-
-.App div#dateInfo {
-  background-image: -webkit-linear-gradient(bottom, white 55%, #FF0000 45%);
-  border: 2px solid black;
-  box-shadow: 3px 3px 3px 3px black;
-  width: fit-content; 
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 5px;
-  margin-top: 25px;
-  cursor: default;
-}
-
-.App p#monthYear {
-  background-color: #FF0000;
-  color: white;
-  padding: 5px;
-  height: fit-content;
-  margin-left: auto;
-  margin-right: auto; 
-  font-weight: bold;
-  font-size: 35px;
-  margin: 10px;
-  /* border-radius: 5px; */
-}
-
-.App p#todaysDate {
-  color: #003366;
-  font-weight: bold;
-  margin: 10px;
-}
-
-.App p#currentTime {
-  color: #003366;
-  font-weight: bold;
-  animation: blink 1s step-start 0s infinite;
-  margin: 10px;
+  text-align: left;
 }
 
 .App p {
@@ -105,7 +132,7 @@
 }
 
 .App ol {
-  /* text-decoration: line-through; */
+  
 } 
 
 
