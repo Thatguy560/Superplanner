@@ -15,7 +15,7 @@ Your job is to make a todo list application. This is no ordinary to do list thou
 - [ ] Add, Edit, and Delete Todos 
 - [ ] Mark Todos as complete
 - [ ] See a list of completed todos and uncomplete a todo
-- [ ] See the current weather and date
+- [X] See the current weather and date
   
 Implement all of the following user stories to bring the SuperTodoList to life ! I'd recommend that you use the following stack to create this project:
 

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { REACT_APP_API_KEY } from "./API_KEY.js";
+import { API_KEY } from "./API_KEY.js";
 
 const API = {
-  KEY: REACT_APP_API_KEY,
+  KEY: API_KEY,
   URL: "https://api.openweathermap.org/data/2.5/",
 };
 
 export function Weather() {
-  const [lat, setLat] = useState([]);
-  const [long, setLong] = useState([]);
+  const [lat, setLat] = useState("");
+  const [long, setLong] = useState("");
   const [weatherData, setWeatherData] = useState({});
 
   useEffect(() => {
