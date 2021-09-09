@@ -1,69 +1,71 @@
-import "./css/App.css";
-import "./css/dateTime.css";
-import "./css/weatherConditions.css";
 import React, { useState } from "react";
 import FlipMove from "react-flip-move";
 import { TimeDate } from "./components/dateTime";
 import { Weather } from "./components/weatherConditions";
+import "./css/App.css";
+import "./css/dateTime.css";
+import "./css/weatherConditions.css";
 
-export function App() {
-  const [todo, setItem] = useState("");
-  const [list, updateList] = useState([]);
+function App() {
+  const [todo, setTodo] = React.useState("");
+  const [todoList, updateTodoList] = useState([]);
 
-  const createToDoItem = (newItem) => {
-    if (newItem.target.value !== "") {
-      setItem({
-        text: newItem.target.value,
-        key: new Date().getTime(),
-        completed: false, // Set to true when completed
-      });
-    }
-  };
-
-  const addItem = () => {
-    if (todo !== "" && todo.text !== undefined) {
-      updateList([...new Set([...list, todo])]);
-      document.getElementById("Input").value = "";
-    }
+  const addItem = (e) => {
+    e.preventDefault();
+    const myNewTodo = {
+      id: new Date().getTime(),
+      text: todo,
+      completed: false,
+    };
+    updateTodoList([...todoList, myNewTodo]);
+    setTodo("");
   };
 
   const deleteItem = (index) => {
-    updateList((list) => {
-      let items = [...list];
+    updateTodoList((list) => {
+      let items = [...todoList];
       items.splice(index, 1);
       return items;
     });
   };
   // Then filter by checking if true or false to check if completed or not.
   const itemCompleted = (index) => {
-    let allItems = [...list];
+    let allItems = [...todoList];
     allItems[index].completed = true;
-    updateList(allItems);
+    updateTodoList(allItems);
   };
 
-  const sortCompletedItems = () => {
-    updateList([...list].filter((item) => item.completed !== true));
+  const sortCompletedItems = (e) => {
+    e.preventDefault();
+    updateTodoList([...todoList].filter((item) => item.completed !== true));
   };
 
   return (
     <div className="App">
-      <div className="box">
-        <TimeDate />
-        <Weather />
-        {console.log(list)}
-      </div>
-      <input id="Input" placeholder="Enter Todo..." onChange={createToDoItem} />
-      <button id="Add" onClick={addItem}>
-        Add
+      <form onSubmit={addItem}>
+        <div className="box">
+          <TimeDate />
+          <Weather />
+        </div>
+        <input
+          id="Input"
+          type="text"
+          placeholder="Enter Todo..."
+          onChange={(e) => setTodo(e.target.value)} // e.target.value (e is an event object, target is the input, value is the value of that input)
+          value={todo}
+        />
+        <button id="Add" type="submit">
+          Add
+        </button>
+      </form>
+      <button id="sortCompleted" onClick={sortCompletedItems}>
+        Sort Completed Todos
       </button>
       <FlipMove
         enterAnimation="accordionVertical"
         leaveAnimation="accordionVertical"
       >
-        <button id="sortCompleted" onClick={sortCompletedItems}>
-          Sort Completed Todos
-        </button>
-        {list.map((item, index) => {
+        {todoList.map((item, index) => {
           return (
             <ol key={index}>
               <p id="list">
