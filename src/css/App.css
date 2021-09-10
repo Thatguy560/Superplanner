@@ -51,9 +51,23 @@
 .App button#Edit {
   cursor: pointer;
   display: inline;
+  background-color: #ffc107;
+  border: 2px solid #ffc107;
+  color: #FFFFFF;
+  font-weight: bold;
   border-radius: 5px;
   margin: 5px;
   cursor: pointer;
+}
+
+.App button#Edit:hover {
+  background-color: #f0b80f;
+  border: 2px solid #f0b80f;
+}
+
+.App button#Edit:active {
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
 }
 
 .App button#Delete {
@@ -78,33 +92,16 @@
   transform: translateY(4px);
 }
 
-.App button#Completed {
-  cursor: pointer;
-  display: inline;
-  background-color: #32CD32;
-  border: 2px solid #32CD32;
-  color: #FFFFFF;
-  font-weight: bold;
-  border-radius: 5px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-.App button#Completed:hover {
-  background-color: #3ab63a;
-  border: 2px solid #3ab63a;
-}
-
 .App button#Completed:active {
   box-shadow: 0 3px #666;
   transform: translateY(4px);
 }
 
-.App button#sortCompleted {
+.App button#seeCompleted {
   cursor: pointer;
   display: inline;
-  background-color: #32CD32;
-  border: 2px solid #32CD32;
+  background-color: #28a745;
+  border: 2px solid #28a745;
   color: #FFFFFF;
   font-weight: bold;
   margin: 10px;
@@ -124,16 +121,28 @@
   text-align: left;
 }
 
-.App p {
-  
+.App input[type="checkbox" i] {
+  /* opacity: 0; */
 }
 
-.App input {
-
+.App input[type="checkbox"]:before {
+  cursor: pointer;
+  content: '✖';
+  padding: 10px;
+  border: 2px solid #343a40;
+  background-color: #343a40;
+  color: white;
+  border-radius: 5px;
+  padding: 2.5px;
+  /* font-size: 15px; */
 }
 
-.App ol {
-  
-} 
+.App input[type="checkbox"]:checked:before {
+  content: '✔';
+  background-color: #28a745;
+  border: 2px solid #28a745;
+  color: white;
+}
+
 
 

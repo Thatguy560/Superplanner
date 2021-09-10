@@ -17,27 +17,30 @@ function App() {
       text: todo,
       completed: false,
     };
-    updateTodoList([...todoList, myNewTodo]);
-    setTodo("");
+    if (myNewTodo.text !== "") {
+      updateTodoList([...todoList, myNewTodo]);
+      setTodo("");
+    }
   };
 
-  const deleteItem = (index) => {
+  const deleteItem = (id) => {
+    // updateTodoList([...todoList].filter((todo) => todo.id !== todoList[id].id));
     updateTodoList((list) => {
       let items = [...todoList];
-      items.splice(index, 1);
+      items.splice(id, 1);
       return items;
     });
   };
-  // Then filter by checking if true or false to check if completed or not.
-  const itemCompleted = (index) => {
+
+  const itemCompleted = (id) => {
     let allItems = [...todoList];
-    allItems[index].completed = true;
+    allItems[id].completed = !allItems[id].completed;
     updateTodoList(allItems);
   };
 
-  const sortCompletedItems = (e) => {
-    e.preventDefault();
-    updateTodoList([...todoList].filter((item) => item.completed !== true));
+  const seeCompletedItems = () => {
+    const sorted = [...todoList].filter((item) => item.completed === true);
+    updateTodoList(sorted);
   };
 
   return (
@@ -49,7 +52,6 @@ function App() {
         </div>
         <input
           id="Input"
-          type="text"
           placeholder="Enter Todo..."
           onChange={(e) => setTodo(e.target.value)} // e.target.value (e is an event object, target is the input, value is the value of that input)
           value={todo}
@@ -58,27 +60,31 @@ function App() {
           Add
         </button>
       </form>
-      <button id="sortCompleted" onClick={sortCompletedItems}>
-        Sort Completed Todos
+      <button id="seeCompleted" onClick={seeCompletedItems}>
+        See Completed Todos
       </button>
       <FlipMove
         enterAnimation="accordionVertical"
         leaveAnimation="accordionVertical"
       >
-        {todoList.map((item, index) => {
+        {todoList.map((item, id) => {
           return (
-            <ol key={index}>
+            <ol key={item.id}>
               <p id="list">
-                {`${index + 1}. ${item.text[0].toUpperCase()}${item.text
+                {`${id + 1}. ${item.text[0].toUpperCase()}${item.text
                   .slice(1)
                   .toLowerCase()}`}
-                <button id="Completed" onClick={() => itemCompleted(index)}>
-                  ✓
+
+                <input
+                  type="checkbox"
+                  class="checkboxField"
+                  onClick={() => itemCompleted(id)}
+                />
+
+                <button id="Delete" onClick={() => deleteItem(id)}>
+                  Delete ✕
                 </button>
-                <button id="Delete" onClick={() => deleteItem(index)}>
-                  ✕
-                </button>
-                <button id="Edit">Edit</button>
+                {/* {console.log(todoList)} */}
               </p>
             </ol>
           );
