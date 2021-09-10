@@ -70,6 +70,28 @@
   transform: translateY(4px);
 }
 
+.App button#SubmitEdit {
+  cursor: pointer;
+  display: inline;
+  background-color: #007bff;
+  border: 2px solid #007bff;
+  color: #FFFFFF;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.App button#SubmitEdit:hover {
+  background-color: #0c77e9;
+  border: 2px solid #0c77e9;
+}
+
+.App button#SubmitEdit:active {
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+
 .App button#Delete {
   cursor: pointer;
   display: inline;
@@ -121,8 +143,8 @@
   text-align: left;
 }
 
-.App input[type="checkbox" i] {
-  /* opacity: 0; */
+/* .App input[type="checkbox" i] {
+  
 }
 
 .App input[type="checkbox"]:before {
@@ -134,7 +156,6 @@
   color: white;
   border-radius: 5px;
   padding: 2.5px;
-  /* font-size: 15px; */
 }
 
 .App input[type="checkbox"]:checked:before {
@@ -142,7 +163,7 @@
   background-color: #28a745;
   border: 2px solid #28a745;
   color: white;
-}
+} */
 
 
 

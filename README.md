@@ -12,8 +12,8 @@ Taken from https://gist.github.com/ryanpierre/971c0fc456acf38ae012bc0c7d54bc9b#f
 
 Your job is to make a todo list application. This is no ordinary to do list though. It's a super planner! Here is a quick feature list we are hoping to implement:
 
-- [ ] Add, Edit, and Delete Todos 
-- [ ] Mark Todos as complete
+- [X] Add, Edit, and Delete Todos 
+- [X] Mark Todos as complete
 - [ ] See a list of completed todos and uncomplete a todo
 - [X] See the current weather and date
   

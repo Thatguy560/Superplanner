@@ -9,6 +9,8 @@ import "./css/weatherConditions.css";
 function App() {
   const [todo, setTodo] = React.useState("");
   const [todoList, updateTodoList] = useState([]);
+  const [editingText, setEditingText] = useState("");
+  const [todoEditing, setTodoEditing] = useState("");
 
   const addItem = (e) => {
     e.preventDefault();
@@ -24,12 +26,24 @@ function App() {
   };
 
   const deleteItem = (id) => {
-    // updateTodoList([...todoList].filter((todo) => todo.id !== todoList[id].id));
     updateTodoList((list) => {
       let items = [...todoList];
       items.splice(id, 1);
       return items;
     });
+    // updateTodoList([...todoList].filter((todo) => todo.id !== todoList[id].id));
+  };
+
+  const editItem = (id) => {
+    const updatedTodos = [...todoList].map((todo) => {
+      if (todo.id === id && editingText !== "") {
+        todo.text = editingText;
+      }
+      return todo;
+    });
+    updateTodoList(updatedTodos);
+    setTodoEditing("");
+    setEditingText("");
   };
 
   const itemCompleted = (id) => {
@@ -39,7 +53,7 @@ function App() {
   };
 
   const seeCompletedItems = () => {
-    const sorted = [...todoList].filter((item) => item.completed === true);
+    const sorted = [...todoList].filter((item) => !item.completed);
     updateTodoList(sorted);
   };
 
@@ -71,20 +85,30 @@ function App() {
           return (
             <ol key={item.id}>
               <p id="list">
-                {`${id + 1}. ${item.text[0].toUpperCase()}${item.text
-                  .slice(1)
-                  .toLowerCase()}`}
-
-                <input
-                  type="checkbox"
-                  class="checkboxField"
-                  onClick={() => itemCompleted(id)}
-                />
-
+                <input type="checkbox" onClick={() => itemCompleted(id)} />
+                {todoEditing === item.id ? (
+                  <input
+                    type="text"
+                    onChange={(e) => setEditingText(e.target.value)}
+                    value={editingText}
+                  />
+                ) : (
+                  `  ${id + 1}. ${item.text[0].toUpperCase()}${item.text
+                    .slice(1)
+                    .toLowerCase()}`
+                )}
+                {todoEditing === item.id ? (
+                  <button id="SubmitEdit" onClick={() => editItem(item.id)}>
+                    Submit Edit ✔
+                  </button>
+                ) : (
+                  <button id="Edit" onClick={() => setTodoEditing(item.id)}>
+                    Edit
+                  </button>
+                )}
                 <button id="Delete" onClick={() => deleteItem(id)}>
                   Delete ✕
                 </button>
-                {/* {console.log(todoList)} */}
               </p>
             </ol>
           );
