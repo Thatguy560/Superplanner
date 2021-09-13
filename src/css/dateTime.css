@@ -7,11 +7,11 @@
     margin-right: auto;
     border-radius: 5px;
     margin-top: 15px;
-    cursor: default;
     font-family: "impact";
     font-size: 25px;
     letter-spacing: 1.5px;
     text-align: center;
+    cursor: default;
   }
   
   #monthYear {

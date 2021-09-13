@@ -15,7 +15,7 @@ function App() {
   React.useEffect(() => {
     const accessedStorage = localStorage.getItem("todoList");
     const loadedTodoList = JSON.parse(accessedStorage); // Parse converts a JSON string into an object.
-    if (loadedTodoList) {
+    if (loadedTodoList.length > 0) {
       updateTodoList(loadedTodoList);
     }
   }, []);
@@ -39,11 +39,9 @@ function App() {
   };
 
   const deleteItem = (id) => {
-    updateTodoList((list) => {
-      let items = [...todoList];
-      items.splice(id, 1);
-      return items;
-    });
+    let items = [...todoList];
+    items.splice(id, 1);
+    updateTodoList(items);
   };
 
   const editItem = (id) => {
@@ -64,10 +62,9 @@ function App() {
     updateTodoList(allItems);
   };
 
-  const seeCompletedItems = () => {
-    const sorted = [...todoList].filter((item) => item.completed === true);
-    console.log(todoList);
-    updateTodoList(sorted);
+  const removeCompletedItems = () => {
+    const completed = [...todoList].filter((item) => item.completed !== true);
+    updateTodoList(completed);
   };
 
   return (
@@ -88,8 +85,8 @@ function App() {
         </button>
       </form>
       {todoList.length > 0 ? (
-        <button id="seeCompleted" onClick={seeCompletedItems}>
-          See Completed Todos
+        <button id="seeCompleted" onClick={removeCompletedItems}>
+          Remove Completed Todos ✔
         </button>
       ) : (
         <div></div>
@@ -101,11 +98,20 @@ function App() {
         {todoList.map((item, id) => {
           return (
             <ol key={item.id}>
-              <p id="list">
+              <p
+                id="list"
+                style={{
+                  textDecoration: item.completed === true ? "line-through" : "",
+                }}
+              >
                 <input type="checkbox" onClick={() => itemCompleted(id)} />
                 {todoEditing === item.id ? (
                   <input
                     type="text"
+                    placeholder={
+                      item.text[0].toUpperCase() +
+                      item.text.slice(1).toLowerCase()
+                    }
                     onChange={(e) => setEditingText(e.target.value)}
                     value={editingText}
                   />
@@ -116,11 +122,11 @@ function App() {
                 )}
                 {todoEditing === item.id ? (
                   <button id="SubmitEdit" onClick={() => editItem(item.id)}>
-                    Submit Edit ✔
+                    Submit Edit ✎
                   </button>
                 ) : (
                   <button id="Edit" onClick={() => setTodoEditing(item.id)}>
-                    Edit
+                    Edit ✎
                   </button>
                 )}
                 <button id="Delete" onClick={() => deleteItem(id)}>

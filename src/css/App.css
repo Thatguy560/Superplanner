@@ -114,11 +114,6 @@
   transform: translateY(4px);
 }
 
-.App button#Completed:active {
-  box-shadow: 0 3px #666;
-  transform: translateY(4px);
-}
-
 .App button#seeCompleted {
   cursor: pointer;
   display: inline;
@@ -131,6 +126,17 @@
   font-size: 15px;
   box-shadow: 0px 5px rgba(0, 0, 0, 0.2);  
 }
+
+.App button#seeCompleted:hover {
+  background-color: #2b9e46;
+  border: 2px solid #2b9e46;
+}
+
+.App button#seeCompleted:active {
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+
 
 .App p#list {
   color: black;
@@ -147,23 +153,6 @@
   margin: 7.5px;
 }
 
-/* .App input[type="checkbox"]:before {
-  cursor: pointer;
-  content: '✖';
-  padding: 10px;
-  border: 2px solid #343a40;
-  background-color: #343a40;
-  color: white;
-  border-radius: 5px;
-  padding: 2.5px;
-}
-
-.App input[type="checkbox"]:checked:before {
-  content: '✔';
-  background-color: #28a745;
-  border: 2px solid #28a745;
-  color: white;
-}  */
 
 
 

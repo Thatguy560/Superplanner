@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export function TimeDate() {
-  const [date, updateDate] = React.useState(new Date()); // Move this to another component.
+  const [date, updateDate] = useState(new Date());
 
   useEffect(() => {
     let interval;
