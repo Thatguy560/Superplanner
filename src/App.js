@@ -7,10 +7,23 @@ import "./css/dateTime.css";
 import "./css/weatherConditions.css";
 
 function App() {
-  const [todo, setTodo] = React.useState("");
+  const [todo, setTodo] = useState("");
   const [todoList, updateTodoList] = useState([]);
   const [editingText, setEditingText] = useState("");
   const [todoEditing, setTodoEditing] = useState("");
+
+  React.useEffect(() => {
+    const accessedStorage = localStorage.getItem("todoList");
+    const loadedTodoList = JSON.parse(accessedStorage); // Parse converts a JSON string into an object.
+    if (loadedTodoList) {
+      updateTodoList(loadedTodoList);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    const json = JSON.stringify(todoList); // stringify turns any JavaScript into JSON.
+    localStorage.setItem("todoList", json); // Creates a Key/Pair value
+  }, [todoList]);
 
   const addItem = (e) => {
     e.preventDefault();
@@ -31,7 +44,6 @@ function App() {
       items.splice(id, 1);
       return items;
     });
-    // updateTodoList([...todoList].filter((todo) => todo.id !== todoList[id].id));
   };
 
   const editItem = (id) => {
@@ -53,7 +65,8 @@ function App() {
   };
 
   const seeCompletedItems = () => {
-    const sorted = [...todoList].filter((item) => !item.completed);
+    const sorted = [...todoList].filter((item) => item.completed === true);
+    console.log(todoList);
     updateTodoList(sorted);
   };
 
@@ -67,16 +80,20 @@ function App() {
         <input
           id="Input"
           placeholder="Enter Todo..."
-          onChange={(e) => setTodo(e.target.value)} // e.target.value (e is an event object, target is the input, value is the value of that input)
+          onChange={(e) => setTodo(e.target.value)} // e is an event object, target is the input, value is the value of that input
           value={todo}
         />
         <button id="Add" type="submit">
           Add
         </button>
       </form>
-      <button id="seeCompleted" onClick={seeCompletedItems}>
-        See Completed Todos
-      </button>
+      {todoList.length > 0 ? (
+        <button id="seeCompleted" onClick={seeCompletedItems}>
+          See Completed Todos
+        </button>
+      ) : (
+        <div></div>
+      )}
       <FlipMove
         enterAnimation="accordionVertical"
         leaveAnimation="accordionVertical"
@@ -93,7 +110,7 @@ function App() {
                     value={editingText}
                   />
                 ) : (
-                  `  ${id + 1}. ${item.text[0].toUpperCase()}${item.text
+                  `${id + 1}. ${item.text[0].toUpperCase()}${item.text
                     .slice(1)
                     .toLowerCase()}`
                 )}

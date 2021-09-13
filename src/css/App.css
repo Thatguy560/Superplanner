@@ -143,11 +143,11 @@
   text-align: left;
 }
 
-/* .App input[type="checkbox" i] {
-  
+.App input[type="checkbox" i] {
+  margin: 7.5px;
 }
 
-.App input[type="checkbox"]:before {
+/* .App input[type="checkbox"]:before {
   cursor: pointer;
   content: '✖';
   padding: 10px;
@@ -163,7 +163,7 @@
   background-color: #28a745;
   border: 2px solid #28a745;
   color: white;
-} */
+}  */
 
 
 
