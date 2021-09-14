@@ -15,7 +15,7 @@ function App() {
   React.useEffect(() => {
     const accessedStorage = localStorage.getItem("todoList");
     const loadedTodoList = JSON.parse(accessedStorage); // Parse converts a JSON string into an object.
-    if (loadedTodoList.length > 0) {
+    if (loadedTodoList.length) {
       updateTodoList(loadedTodoList);
     }
   }, []);
@@ -84,13 +84,9 @@ function App() {
           Add
         </button>
       </form>
-      {todoList.length > 0 ? (
-        <button id="seeCompleted" onClick={removeCompletedItems}>
-          Remove Completed Todos ✔
-        </button>
-      ) : (
-        <div></div>
-      )}
+      <button id="seeCompleted" onClick={removeCompletedItems}>
+        Remove Completed Todos ✔
+      </button>
       <FlipMove
         enterAnimation="accordionVertical"
         leaveAnimation="accordionVertical"
@@ -109,16 +105,15 @@ function App() {
                   <input
                     type="text"
                     placeholder={
-                      item.text[0].toUpperCase() +
-                      item.text.slice(1).toLowerCase()
+                      item.text[0].toUpperCase() + item.text.slice(1)
                     }
                     onChange={(e) => setEditingText(e.target.value)}
                     value={editingText}
                   />
                 ) : (
-                  `${id + 1}. ${item.text[0].toUpperCase()}${item.text
-                    .slice(1)
-                    .toLowerCase()}`
+                  `${id + 1}. ${item.text[0].toUpperCase()}${item.text.slice(
+                    1
+                  )}`
                 )}
                 {todoEditing === item.id ? (
                   <button id="SubmitEdit" onClick={() => editItem(item.id)}>

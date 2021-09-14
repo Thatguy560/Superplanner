@@ -47,7 +47,6 @@
   transform: translateY(4px);
 }
 
-
 .App button#Edit {
   cursor: pointer;
   display: inline;
@@ -136,7 +135,6 @@
   box-shadow: 0 3px #666;
   transform: translateY(4px);
 }
-
 
 .App p#list {
   color: black;
