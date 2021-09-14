@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Superplanner/static/css/main.9fadd15c.chunk.css",
+    "main.js": "/Superplanner/static/js/main.9b2392a1.chunk.js",
+    "main.js.map": "/Superplanner/static/js/main.9b2392a1.chunk.js.map",
+    "runtime-main.js": "/Superplanner/static/js/runtime-main.37ad33e6.js",
+    "runtime-main.js.map": "/Superplanner/static/js/runtime-main.37ad33e6.js.map",
+    "static/js/2.6ca8f559.chunk.js": "/Superplanner/static/js/2.6ca8f559.chunk.js",
+    "static/js/2.6ca8f559.chunk.js.map": "/Superplanner/static/js/2.6ca8f559.chunk.js.map",
+    "index.html": "/Superplanner/index.html",
+    "static/css/main.9fadd15c.chunk.css.map": "/Superplanner/static/css/main.9fadd15c.chunk.css.map",
+    "static/js/2.6ca8f559.chunk.js.LICENSE.txt": "/Superplanner/static/js/2.6ca8f559.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.37ad33e6.js",
+    "static/js/2.6ca8f559.chunk.js",
+    "static/css/main.9fadd15c.chunk.css",
+    "static/js/main.9b2392a1.chunk.js"
+  ]
+}
