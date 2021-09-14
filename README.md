@@ -1,10 +1,8 @@
 # Super Planner
 
-<!-- GIF of project goes here -->
-
-<!-- <p align="center">
+<p align="center">
   <img src="./src/assets/DemoOfApp.gif" alt="animated" />
-</p> -->
+</p>
 
 # Requirements
 
@@ -83,28 +81,27 @@ So that I can plan my day better
 I can see the current temperature and weather conditions displayed
 ```
  
-<!-- # Installation
+# Installation
 
 1. Clone this repository
 
-2. type git clone "https://github.com/Thatguy560/Timer-React" in the terminal
+2. type git clone "https://github.com/Thatguy560/Superplanner" in the terminal
 
-3. cd into 'Timer-React' (Change directory's)
+3. cd into 'super-planner' (Change directory's)
 
-4. Install [node.js](https://nodejs.org/en/download/) and run npm install in command line to install dependencies -->
+4. Install [node.js](https://nodejs.org/en/download/) and run 'npm install' in command line to install dependencies
 
-<!-- 
 # How To Run (Locally)
 
 1. Open up a terminal in your text editor and type 'npm start'
 
 2. This should then automatically open the app on your browser, however if it doesn't just open up any browser of your choosing and type in the url "http://localhost:3000/".
 
-3. Once the page is loaded, type in how long you want to set a timer for (In minutes) and click "Set Timer". Once you're ready click "Start Timer". You also have the option to Pause or Resume the timer or Reset it.
+3. Once the page is loaded, you can add some todo items, delete them or edit them, alternatively you can also mark/un-mark them as completed. Moreover, this app displays the time and date and also the weather to help you plan out your daily/weekly tasks more efficiently. 
 
 # Alternatively Visit the deployed app
 
-Click [here](https://my-timer-application.herokuapp.com/) for the deployed app on Heroku.  -->
+Click [here](https://thatguy560.github.io/Superplanner/) for the deployed app on Github Pages.
 
 # Technologies Used
 
