@@ -31,17 +31,48 @@ export function Weather() {
 
   return (
     <div>
-      {typeof weatherData.main != "undefined" ? (
-        <div className="weather-box">
-          <div id="location">
-            {weatherData.name}, {weatherData.sys.country}
-            <div id="temp">{Math.round(weatherData.main.temp)}°c</div>
-            <div id="weather">{weatherData.weather[0].main}</div>
+      <div
+        className={
+          typeof weatherData.main != "undefined"
+            ? weatherData.main.temp > 15 &&
+              weatherData.main.temp < 30 &&
+              weatherData.weather[0].main === "Clouds"
+              ? "weather warmcloudy"
+              : weatherData.main.temp > 15 &&
+                weatherData.main.temp < 30 &&
+                weatherData.weather[0].main === "Clear"
+              ? "weather warm"
+              : weatherData.main.temp < 1 &&
+                weatherData.weather[0].main !== "Rain"
+              ? "weather ice"
+              : weatherData.weather[0].main === "Thunderstorm"
+              ? "weather lightning"
+              : weatherData.weather[0].main === "Snow"
+              ? "weather snow"
+              : weatherData.main.temp >= 30 &&
+                weatherData.weather[0].main !== "Rain"
+              ? "weather hot"
+              : weatherData.main.temp < 6 &&
+                weatherData.weather[0].main === "Clear"
+              ? "weather coldclear"
+              : weatherData.weather[0].main === "Rain"
+              ? "weather raining"
+              : "weather clear"
+            : "weather"
+        }
+      >
+        {typeof weatherData.main != "undefined" ? (
+          <div className="weather-box">
+            <div id="location">
+              {weatherData.name}, {weatherData.sys.country}
+              <div id="temp">{Math.round(weatherData.main.temp)}°c</div>
+              <div id="weather">{weatherData.weather[0].main}</div>
+            </div>
           </div>
-        </div>
-      ) : (
-        <div></div>
-      )}
+        ) : (
+          <div></div>
+        )}
+      </div>
     </div>
   );
 }

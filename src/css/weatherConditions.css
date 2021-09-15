@@ -1,22 +1,100 @@
-#test {
-    margin: 10px;
-}
-
 .weather-box {
-    color: black;
-    background-image: url("https://cdn.wallpaperhub.app/cloudcache/f/b/b/d/a/d/fbbdada7ce61a2181a4de8da8b40f2f106ffbf6b.jpg");
-    background-size: cover;                      
-    background-position: center center;
-    margin: 10px;
     border-radius: 5px;
-    width: 16%;
     padding: 10px;
+    text-align: center;
     border: 2px solid black;
     box-shadow: 3px 3px 3px 3px black;
-    text-align: center;
     cursor: default;
 }
 
+.weather {
+    background-image: url("https://github.com/Thatguy560/WeatherApp/blob/master/src/assets/backgroundwallpaper.jpg?raw=true");
+    background-size: cover;                       
+    background-position: center center;
+    width: 18%;
+    margin: 10px;
+  }
+  
+  .weather.cold {
+    background-image: url("https://github.com/Thatguy560/WeatherApp/blob/master/src/assets/Cold.jpg?raw=true");
+    background-size: cover;                       
+    background-position: center center;
+    width: 18%;
+    margin: 10px;
+  }
+  
+  .weather.warm {
+    background-image: url("https://github.com/Thatguy560/WeatherApp/blob/master/src/assets/Warm.jpg?raw=true");
+    background-size: cover;                       
+    background-position: center center;
+    width: 18%;
+    margin: 10px;
+  }
+  
+  .weather.snow {
+    background-image: url("https://github.com/Thatguy560/WeatherApp/blob/master/src/assets/Snow.jpg?raw=true");
+    background-size: cover;                       
+    background-position: center center;
+    width: 18%;
+    margin: 10px;
+  }
+  
+  .weather.warmcloudy {
+    background-image: url("https://github.com/Thatguy560/WeatherApp/blob/master/src/assets/WarmCloudy.jpg?raw=true");
+    background-size: cover;                       
+    background-position: center center;
+    width: 18%;
+    margin: 10px;
+  }
+  
+  .weather.raining {
+    background-image: url("https://github.com/Thatguy560/WeatherApp/blob/master/src/assets/Raining.jpg?raw=true");
+    background-size: cover;                       
+    background-position: center center;
+    width: 18%;
+    margin: 10px;
+  }
+  
+  .weather.lightning {
+    background-image: url("https://github.com/Thatguy560/WeatherApp/blob/master/src/assets/Lightning.jpg?raw=true");
+    background-size: cover;                       
+    background-position: center center;
+    width: 18%;
+    margin: 10px;
+  }
+  
+  .weather.ice {
+    background-image: url("https://github.com/Thatguy560/WeatherApp/blob/master/src/assets/Ice.jpg?raw=true");
+    background-size: cover;                       
+    background-position: center center;
+    width: 18%;
+    margin: 10px;
+  }
+  
+  .weather.clearskies {
+    background-image: url("https://raw.githubusercontent.com/Thatguy560/WeatherApp/master/src/assets/ClearSkies.jpg");
+    background-size: cover;                       
+    background-position: center center;
+    width: 18%;
+    margin: 10px;
+  }
+  
+  .weather.coldclear {
+    background-image: url("https://github.com/Thatguy560/WeatherApp/blob/master/src/assets/Coldclear.jpg?raw=true");
+    background-size: cover;                       
+    background-position: center center;
+    width: 18%;
+    margin: 10px;
+  }
+  
+  .weather.hot {
+    background-image: url("https://github.com/Thatguy560/WeatherApp/blob/master/src/assets/Hot.jpg?raw=true");
+    background-size: cover;                       
+    background-position: center center;
+    width: 18%;
+    margin: 10px;
+  }
+  
 #location {
     color: white; 
     font-size: 20px;
